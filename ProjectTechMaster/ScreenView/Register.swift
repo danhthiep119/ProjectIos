@@ -26,10 +26,7 @@ class Register: UIViewController {
         super.viewDidLoad()
         editView()
         
-        addLeftImage(textField: txtTen, img: UIImage(named: "iconUser") ?? UIImage())
-        addLeftImage(textField: txtSDT, img: UIImage(named: "iconPhone") ?? UIImage())
-        addLeftImage(textField: txtMatKhau, img: UIImage(named: "iconKey") ?? UIImage())
-        addLeftImage(textField: txtNhapLai, img: UIImage(named: "iconKey") ?? UIImage())
+        
     }
     
     func editView(){
@@ -40,7 +37,10 @@ class Register: UIViewController {
         txtMatKhau.isSecureTextEntry = true
         txtNhapLai.isSecureTextEntry = true
         
-        
+        addLeftImage(textField: txtTen, img: UIImage(named: "iconUser") ?? UIImage())
+        addLeftImage(textField: txtSDT, img: UIImage(named: "iconPhone") ?? UIImage())
+        addLeftImage(textField: txtMatKhau, img: UIImage(named: "iconKey") ?? UIImage())
+        addLeftImage(textField: txtNhapLai, img: UIImage(named: "iconKey") ?? UIImage())
         
         btnDangKy.titleLabel?.font =  .boldSystemFont(ofSize: 20)
         btnDangNhap.titleLabel?.font =  .boldSystemFont(ofSize: 20)
@@ -58,6 +58,7 @@ class Register: UIViewController {
     }
 
     @IBAction func btnDangKy(_ sender: Any) {
+        
     }
     
     @IBAction func btnDangNhap(_ sender: Any) {

@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 class IssueView: UIViewController {
 
-    var issue = [Issue]()
+//    var issue = [Issue]()
     
     @IBOutlet weak var txtAddress: UITextField!
     
@@ -22,17 +22,32 @@ class IssueView: UIViewController {
         super.viewDidLoad()
         restAPI()
         showInfomation()
+        editView()
+        navigationItem.title = "Báo cáo sự cố"
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: nil)
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(showMenu))
+        navigationController?.navigationBar.barTintColor = .brown
+
     }
+    
+    @objc func showMenu(){
+//        let mainVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Menu") as! Menu
+//        let navigation = UINavigationController(rootViewController: mainVC)
+//        navigation.modalPresentationStyle = .fullScreen
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func editView(){
+        txtAddress.underlined(.gray)
+        txtDecription.underlined(.gray)
+        txtTitleIssue.underlined(.gray)
+    }
+    
     func showInfomation(){
         
     }
     
     func restAPI(){
-        let url = "https://jsoneditoronline.org/?id=659ed9f220104571b6e40f9f5d0243d8"
-        Alamofire.request(url,method: .get,parameters: nil,encoding: URLEncoding.default,headers: nil).responseJSON{[weak self] (response) in
-            guard let data = response.data, let strongSelf = self else { return }
-            strongSelf.issue = IssueObject.parseData(data)
-        }
 
     }
     

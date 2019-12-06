@@ -11,10 +11,12 @@ import Alamofire
 import AlamofireObjectMapper
 class ViewController: UIViewController {
 
+    @IBOutlet weak var txtCheck: UILabel!
     @IBOutlet weak var txtSDT: UITextField!
     @IBOutlet weak var txtPass: UITextField!
     @IBOutlet weak var btnDangNhap: UIButton!
     
+    var token:String?
 //    var user : User?
     
     
@@ -38,41 +40,45 @@ class ViewController: UIViewController {
         let url = "http://45.118.145.149:8100/login"
         Alamofire.request(url, method: .post, parameters: params, encoding: JSONEncoding.default, headers: nil).responseObject { (response: DataResponse<User>) in
             let profileResponse = response.result.value
+            print(profileResponse?.code)
+            if profileResponse?.code == 0
+            {
             if let res = profileResponse?.data  {
                 print(res.token)
-                print(profileResponse?.code)
-                if profileResponse?.code == 0
-                {
-                    print(profileResponse?.message)
-//                    let token = UserDefaults.standard.string(forKey: res.token) ?? ""
-//                    return ["Authorization": token]
-                }
-                else
-                {
-                }
-                
+                self.token = UserDefaults.standard.string(forKey: res.token) ?? ""
+                let mainVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Main") as! ListIssue
+                let navigation = UINavigationController(rootViewController: mainVC)
+                navigation.modalPresentationStyle = .fullScreen
+                self.present(navigation, animated: true, completion: nil)
+            }
+            }
+            else {
+                print(profileResponse?.message)
+                self.txtCheck.isHidden = false
+                self.txtCheck.text = profileResponse?.message
             }
         }
+        
     }
 
     func addLeftImage(textField:UITextField,img: UIImage){
         let leftImageView = UIImageView(frame: CGRect(x: 0.0, y: 0.0, width: img.size.width, height: img.size.height))
         leftImageView.image = img
-        
         textField.leftView = leftImageView
         textField.leftViewMode = .always
         
     }
     
     func editView(){
-        txtPass.isSecureTextEntry = true
+        txtCheck.isHidden = true
+        txtPass?.isSecureTextEntry = true
         
         //In đậm chữ
-        btnDangNhap.titleLabel?.font =  .boldSystemFont(ofSize: 20)
-        btnDangKy.titleLabel?.font =  .boldSystemFont(ofSize: 20)
+        btnDangNhap?.titleLabel?.font =  .boldSystemFont(ofSize: 20)
+        btnDangKy?.titleLabel?.font =  .boldSystemFont(ofSize: 20)
         //tạo gạch dưới text field
-        txtSDT.underlined(.gray)
-        txtPass.underlined(.gray)
+        txtSDT?.underlined(.gray)
+        txtPass?.underlined(.gray)
         
         //bo góc nút đang nhập
         btnDangNhap.layer.cornerRadius = 8

@@ -15,6 +15,12 @@ class CustomViewCell: UITableViewCell {
     @IBOutlet weak var txtAddress: UILabel!
     @IBOutlet weak var txtTime: UILabel!
     @IBOutlet weak var txtDate: UILabel!
+//    func setIssue(issue:Issue){
+//                txtTitle?.text = issue.title
+//                txtAddress?.text = issue.address
+//                txtTime?.text = issue.time
+//                txtDate?.text = issue.date
+//            }
     
     override func awakeFromNib() {
         super.awakeFromNib()

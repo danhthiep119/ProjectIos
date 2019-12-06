@@ -1,0 +1,6 @@
+module Pods_ProjectTechMaster {
+  umbrella header "Pods-ProjectTechMaster-umbrella.h"
+
+  export *
+  module * { export * }
+}

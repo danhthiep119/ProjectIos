@@ -31,7 +31,46 @@ class Menu: UIViewController, UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let listMenu = list[indexPath.row]
+        
+        switch listMenu.title {
+        case "Báo cáo sự cố":
+            let mainVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "IssueView") as! IssueView
+            mainVC.modalPresentationStyle = .fullScreen
+            let navigation = UINavigationController(rootViewController: mainVC)
+            navigation.modalPresentationStyle = .fullScreen
+            self.present(navigation, animated: true, completion: nil)
+            break
+        case "Danh sách sự cố":
+            dismiss(animated: true, completion: nil)
+            break
+        case "Hồ sơ":
+            let mainVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "UpdateInfomation") as! UpdateInfomation
+            mainVC.modalPresentationStyle = .fullScreen
+            let navigation = UINavigationController(rootViewController: mainVC)
+            navigation.modalPresentationStyle = .fullScreen
+            self.present(navigation, animated: true, completion: nil)
+            break
+        case "Cài đặt":
+            let mainVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Setting") as! Setting
+            mainVC.modalPresentationStyle = .fullScreen
+            let navigation = UINavigationController(rootViewController: mainVC)
+            navigation.modalPresentationStyle = .fullScreen
+            self.present(navigation, animated: true, completion: nil)
+            break
+        case "Đăng xuất":
+            let mainVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Login") as! ViewController
+            mainVC.modalPresentationStyle = .fullScreen
+            let navigation = UINavigationController(rootViewController: mainVC)
+            navigation.modalPresentationStyle = .fullScreen
+            self.present(navigation, animated: true, completion: nil)
+            break
+        default:
+            print("Lỗi")
+            break
+        }
+    }
     
     
     override func viewDidLoad() {
