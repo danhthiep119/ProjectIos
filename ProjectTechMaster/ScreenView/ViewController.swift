@@ -33,7 +33,8 @@ class ViewController: UIViewController {
 //        restAPI()
     }
     
-    func restAPI(phone:String,password:String){let params = [
+    func restAPI(phone:String,password:String){
+        let params = [
         "phone": phone,
         "password": password
         ]

@@ -10,6 +10,10 @@ import UIKit
 
 class Menu: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    let contacts : [Contact] = [
+        Contact(image: UIImage(named: "Image1") ?? UIImage(), name: "Cường", phone: "0947677196", address: "Hà Nội")
+    ]
+    
     @IBOutlet weak var tbList: UITableView!
     @IBOutlet weak var txtTen: UILabel!
     
@@ -82,8 +86,16 @@ class Menu: UIViewController, UITableViewDelegate, UITableViewDataSource {
         tbList.dataSource = self
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let updateInfomationView = segue.destination as? UpdateInfomation else { return}
+        updateInfomationView.contact = contacts[0]
+    }
+    
     func editView(){
         imgAvata.layer.cornerRadius = self.imgAvata.frame.height/2
+        imgAvata.image = contacts[0].image
+        txtTen.text = contacts[0].name
+        txtSDT.text = contacts[0].phone
     }
     
     func addList(){

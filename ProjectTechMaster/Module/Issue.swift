@@ -10,37 +10,62 @@ import Foundation
 import Alamofire
 import ObjectMapper
 
-class Issue {
-    var id:Int?
-    var processed:String?
-    var title:String?
-    var address:String?
-    var time:String?
-    var date:String?
-    
-    init(id:Int, processed:String, title:String, address:String, time:String, date:String){
-        self.id = id
-        self.processed = processed
-        self.title = title
-        self.address = address
-        self.time = time
-        self.date = date
+
+class IssueResult: Mappable {
+    var responseTime = ""
+    var code = 0
+    var message = ""
+    var data: IssueData?
+
+    required convenience init?(map: Map) {
+        self.init()
+    }
+
+    func mapping(map: Map) {
+        responseTime <- map["responseTime"]
+        code <- map["code"]
+        message <- map["message"]
+        data <- map["data"]
     }
 }
 
-//class IssueObject:Codable {
-//    var resultCount:String?
-//    var result = [Issue]()
-//
-//    static func parseData(_ data:Data) -> [Issue]{
-//    do {
-//            let decoder = JSONDecoder()
-//            let resultObject = try decoder.decode(IssueObject.self, from: data)
-//            return resultObject.result
-//        }
-//    catch {
-//        print("JSON Error: \(error)")
-//        return []
-//        }
-//    }
-//}
+class IssueData: Mappable {
+    var issues = [IssueDataDetail]()
+    var issuecount = 0
+
+    required convenience init?(map: Map) {
+        self.init()
+    }
+
+    func mapping(map: Map) {
+        issues <- map["result"]
+        issuecount <- map["issuecount"]
+    }
+}
+
+
+class IssueDataDetail: Mappable {
+    var id:Int = 0
+    var titleissue = ""
+    var contentissue = ""
+    var addressissue = ""
+    var timeissue = ""
+    var dateissue = ""
+    var statusissue = ""
+    var mediaissue :[String] = []
+
+    required convenience init?(map: Map) {
+        self.init()
+    }
+
+    func mapping(map: Map) {
+        id <- map["id"]
+        titleissue <- map["title"]
+        contentissue <- map["content"]
+        addressissue <- map["address"]
+        timeissue <- map["time"]
+        dateissue <- map["date"]
+        statusissue <- map["status"]
+        mediaissue <- map["media"]
+    }
+}

@@ -3,6 +3,7 @@
 
 target 'ProjectTechMaster' do
   pod 'Alamofire'
+pod 'ObjectMapper'
 pod 'AlamofireObjectMapper'
 
 end

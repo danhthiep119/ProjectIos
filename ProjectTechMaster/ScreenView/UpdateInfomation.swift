@@ -18,9 +18,16 @@ class UpdateInfomation: UIViewController {
     @IBOutlet weak var txtSDT: UITextField!
     
     @IBOutlet weak var txtDiaChi: UITextField!
+    
+    var contact:Contact?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        imgAvata?.image = contact?.image
+        txtTen?.text = contact?.name
+        txtSDT?.text = contact?.phone
+        txtDiaChi?.text = contact?.address
         editView()
         navigationItem.title = "Hồ Sơ"
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: nil)

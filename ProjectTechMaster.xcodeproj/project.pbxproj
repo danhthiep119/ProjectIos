@@ -11,6 +11,7 @@
 		9C25BD1C2398FFF800547BB1 /* SettingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C25BD1A2398FFF800547BB1 /* SettingCell.xib */; };
 		9C25BD1E2399009C00547BB1 /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C25BD1D2399009C00547BB1 /* Setting.swift */; };
 		9C2A9FAE2398DFC5004DD83B /* DetailIssue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2A9FAD2398DFC5004DD83B /* DetailIssue.swift */; };
+		9C413CC3239A37870036BBC9 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C413CC2239A37870036BBC9 /* Contact.swift */; };
 		9C5D4C722393DFC900B406A4 /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C5D4C712393DFC900B406A4 /* Register.swift */; };
 		9C5D4C752393E95900B406A4 /* MyCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C5D4C732393E95900B406A4 /* MyCustomCell.swift */; };
 		9C5D4C782393EAB800B406A4 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C5D4C772393EAB800B406A4 /* Menu.swift */; };
@@ -58,6 +59,7 @@
 		9C25BD1A2398FFF800547BB1 /* SettingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingCell.xib; sourceTree = "<group>"; };
 		9C25BD1D2399009C00547BB1 /* Setting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setting.swift; sourceTree = "<group>"; };
 		9C2A9FAD2398DFC5004DD83B /* DetailIssue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailIssue.swift; sourceTree = "<group>"; };
+		9C413CC2239A37870036BBC9 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		9C5D4C712393DFC900B406A4 /* Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
 		9C5D4C732393E95900B406A4 /* MyCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCustomCell.swift; sourceTree = "<group>"; };
 		9C5D4C772393EAB800B406A4 /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 				9C5D4C792393EBD000B406A4 /* List.swift */,
 				9CAE9499239691FB00039E69 /* User.swift */,
 				9CAE949B239697E900039E69 /* Issue.swift */,
+				9C413CC2239A37870036BBC9 /* Contact.swift */,
 			);
 			path = Module;
 			sourceTree = "<group>";
@@ -375,6 +378,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C413CC3239A37870036BBC9 /* Contact.swift in Sources */,
 				9CAFC8C32394B2A5007F35B0 /* CreateIssue.swift in Sources */,
 				9CAE94A223969D2600039E69 /* ListIssue.swift in Sources */,
 				9CAE949C239697E900039E69 /* Issue.swift in Sources */,
